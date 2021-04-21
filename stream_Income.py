@@ -26,7 +26,7 @@ def run():
     st.sidebar.info('This app is created to predict wether a given adult makes more than $50,000  or not')
     st.sidebar.success('https://www.pycaret.org')
     st.sidebar.image(image_office)
-    st.title("Predicting customer will make $50,000  or not")
+    st.title("customer will make $50,000 or not?")
     if add_selectbox == 'Online':
         age=st.number_input('age' , min_value=17, max_value=90, value=17)
         capital_gain =st.number_input('capital_gain',min_value=0, max_value=99999, value=0)
@@ -40,13 +40,13 @@ def run():
         relationship = st.selectbox('relationship ', ['Husband	', 'Not-in-family','Own-child','Unmarried','Wife'])
         race = st.selectbox('race', ['White', 'Black','Asian-Pac-Islander','Amer-Indian-Eskimo','Other'])
         native_country = st.selectbox('native_country', ['United-States','Mexico','Philippines','Germany','Canada','Other values'])
-        income _greter_thanornot = st.selectbox('income _greter_thanornot ', ['yes', 'no'])
+        income_greter_thanornot = st.selectbox('income _greter_thanornot ', ['yes', 'no'])
         sex=st.selectbox('sex ', ['Male', 'Female'])
       
 
         output=""
-        input_dict={'age':age,'capital_gain':capital_gain,'capital_loss':capital_loss,'sex':sex,'hours_per_week': hours_per_week,'workclass': workclass,'education': education,'marital_status' : marital_status,'occupation':occupation,'relationship':relationship,'race':race,'native_country':native_country,'income _greater_thanornot':income _greater_thanornot}
-        input_df = pd.DataFrame([input_dict])
+        input_dict={'age':age,'capital_gain':capital_gain,'capital_loss':capital_loss,'sex':sex,'hours_per_week': hours_per_week,'workclass': workclass,'education': education,'marital_status' : marital_status,'occupation':occupation,'relationship':relationship,'race':race,'native_country':native_country,'income_greater_thanornot':income_greater_thanornot}
+        input_df = pd.DataFrame([input_dict]
         if st.button("Predict"):
             output = predict(model=model, input_df=input_df)
             output = str(output)
