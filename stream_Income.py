@@ -47,13 +47,14 @@ def run():
         output=""
         input_dict={'age':age,'capital_gain':capital_gain,'capital_loss':capital_loss,'sex':sex,'hours_per_week': hours_per_week,'workclass': workclass,'education': education,'marital_status' : marital_status,'occupation':occupation,'relationship':relationship,'race':race,'native_country':native_country,'income_greater_thanornot':income_greater_thanornot}
         input_df = pd.DataFrame([input_dict]
-     if st.button("Predict"):
-          output = predict(model=model, input_df=input_df)
-          output = str(output)
-         if output == '1':
+        if st.button("Predict"):
+            output = predict(model=model, input_df=input_df)
+            output = str(output)
+            if output == '1':
               output="Adult will earn more than 50kdollar"
-         else:
+            else:
               output="Adult will not earn 50kdollar"  
+        st.success('output -- {}'.format(output))
         st.success('output -- {}'.format(output))
     if add_selectbox == 'Batch':
         file_upload = st.file_uploader("Upload csv file for predictions", type=["csv"])
